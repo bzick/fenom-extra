@@ -5,7 +5,7 @@ Add-ons for Fenom
 
 Gives the ability to store variables.
 
-```smarty
+```php
 class Templater extends Fenom {
     use Fenom\VarStorage;
     /* ... */
