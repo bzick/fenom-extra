@@ -1,0 +1,20 @@
+{
+    "name": "fenom/extra",
+    "type": "library",
+    "description": "Add-ons pack for Fenom",
+    "keywords": ["fenom", "add-ons"],
+    "license": "BSD-3",
+    "authors": [
+        {
+            "name": "Ivan Shalganov",
+            "email": "a.cobest@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "fenom/fenom": "1.*"
+    },
+    "autoload": {
+        "psr-0": { "Fenom\\": "lib/" }
+    }
+}
