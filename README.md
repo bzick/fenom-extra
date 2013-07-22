@@ -28,4 +28,4 @@ Variable support:
 * `{$var.globals}` access to `$GLOBALS` array
 * `{$var.version}` return version of the Fenom
 * `{$var.ldelim}`, `{$var.rdelim}` return right and left delimiters of the Fenom tags
-* `{$var.now} return current time stamp`
+* `{$var.now}` return current time stamp
