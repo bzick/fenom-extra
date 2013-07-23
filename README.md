@@ -1,7 +1,9 @@
-Add-ons for Fenom
+Add-ons for Fenom [development]
 =================
 
-### Collector VarStorage
+Extra add-on pack for [Fenom](https://github.com/bzick/fenom) template engine.
+
+### Collector Fenom\VarStorage
 
 Trait gives the ability to store variables.
 
@@ -13,7 +15,7 @@ class Templater extends Fenom {
 ```
 or use `Fenom\Extra`
 
-### Global Fenom\Traitor
+### Accessor Fenom\Traitor
 
 Simple object implementation of Smarty template variable `$smarty`. Use object `Fenom\Traitor` as template variable.
 Variable support:
@@ -29,3 +31,31 @@ Variable support:
 * `{$var.version}` return version of the Fenom
 * `{$var.ldelim}`, `{$var.rdelim}` return right and left delimiters of the Fenom tags
 * `{$var.now}` return current time stamp
+
+### Works with static files
+
+## Fenom\Assets [dev]
+
+Declare tags `{js}` and `{css}` for JavaScript and CSS static files
+
+Setup:
+```php
+Fenom\Assets::add($fenom);
+```
+Usage:
+```smarty
+{js src="/path/to/script.js"}
+{js}
+    tm.init(1000);
+{/js}
+
+{css src="/path/to/styles.css"}
+{css}
+div#content {
+    color: black;
+}
+{/css}
+```
+
+All values collecting into variables `$_assets_js` and `$_asset_css` as:
+* for files: `["code" => false]`
