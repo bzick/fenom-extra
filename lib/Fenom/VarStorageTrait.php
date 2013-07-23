@@ -3,7 +3,7 @@
 namespace Fenom;
 
 
-trait VarStorage {
+trait VarStorageTrait {
     /**
      * @var array storage
      */

@@ -3,17 +3,28 @@ Add-ons for Fenom [development]
 
 Extra add-on pack for [Fenom](https://github.com/bzick/fenom) template engine.
 
-### Collector Fenom\VarStorage
+### Collector Fenom\VarStorageTrait
 
 Trait gives the ability to store variables.
-
+Setup:
 ```php
 class Templater extends Fenom {
-    use Fenom\VarStorage;
+    use Fenom\VarStorageTrait;
     /* ... */
 }
 ```
 or use `Fenom\Extra`
+
+Usage:
+```php
+$fenom->assert("var_name", $value);
+$fenom->assertByRef("var_name", $value);
+$fenom->append("var_name", $value);
+$fenom->prepend("var_name", $value);
+$vars = $fenom->getVars();
+$fenom->assertVars($vars);
+$fenom->resetVars();
+```
 
 ### Accessor Fenom\Traitor
 
@@ -32,6 +43,16 @@ Variable support:
 * `{$var.ldelim}`, `{$var.rdelim}` return right and left delimiters of the Fenom tags
 * `{$var.now}` return current time stamp
 
+Add object manually or use trait `Fenom\AccessorTrait`:
+```php
+class Templater extends Fenom {
+    use Fenom\AccessorTrait;
+    /* ... */
+}
+// ...
+$fenom->addAccessorAs("smarty", "fenom");
+```
+
 ### Works with static files
 
 #### Fenom\Assets [dev]
@@ -40,7 +61,12 @@ Declare tags `{js}` and `{css}` for JavaScript and CSS static files
 
 Setup:
 ```php
-Fenom\Assets::add($fenom);
+class Templater extends Fenom {
+    use Fenom\AssetsTrait;
+    /* ... */
+}
+// ...
+$fenom->enableAssets($settings);
 ```
 Usage:
 ```smarty
@@ -57,5 +83,5 @@ div#content {
 {/css}
 ```
 
-All values collecting into variables `$_assets_js` and `$_asset_css` as:
-* for files: `["code" => false]`
+
+### Cacher Fenom\CacheTrait
