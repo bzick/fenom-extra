@@ -5,30 +5,32 @@ Extra add-on pack for [Fenom](https://github.com/bzick/fenom) template engine.
 
 ### Collector Fenom\VarStorageTrait
 
-Trait gives the ability to store variables.
-Setup:
+*About:* trait gives the ability to store variables in Fenom.
+*Setup:*
 ```php
 class Templater extends Fenom {
     use Fenom\VarStorageTrait;
     /* ... */
 }
 ```
-or use `Fenom\Extra`
-
-Usage:
+*Usage:*
 ```php
-$fenom->assert("var_name", $value);
-$fenom->assertByRef("var_name", $value);
+$fenom->resetVars();
+$fenom->assign("var_name", $value);
+$fenom->assignByRef("var_name", $value);
 $fenom->append("var_name", $value);
 $fenom->prepend("var_name", $value);
 $vars = $fenom->getVars();
 $fenom->assertVars($vars);
-$fenom->resetVars();
+
+$fenom->pipe($template_name, $callback);
+$fenom->fetch($template_name);
+$fenom->display($template_name);
 ```
 
 ### Accessor Fenom\Traitor
 
-Simple object implementation of Smarty template variable `$smarty`. Use object `Fenom\Traitor` as template variable.
+*About:* simple object implementation of Smarty template variable `$smarty`. Use object `Fenom\Traitor` as template variable.
 Variable support:
 * `{$var.const.CONST_NAME}` access to constants
 * `{$var.get}` access to `$_GET` array
@@ -43,23 +45,20 @@ Variable support:
 * `{$var.ldelim}`, `{$var.rdelim}` return right and left delimiters of the Fenom tags
 * `{$var.now}` return current time stamp
 
-Add object manually or use trait `Fenom\AccessorTrait`:
+*Setup:* add object manually or use trait `Fenom\AccessorTrait`:
 ```php
 class Templater extends Fenom {
     use Fenom\AccessorTrait;
     /* ... */
 }
 // ...
-$fenom->addAccessorAs("smarty", "fenom");
+$fenom->addAccessorAs(["smarty", "fenom"]);
 ```
 
-### Works with static files
+### Fenom\Assets [dev]
 
-#### Fenom\Assets [dev]
-
-Declare tags `{js}` and `{css}` for JavaScript and CSS static files
-
-Setup:
+*About:* declare tags `{js}` and `{css}` for JavaScript and CSS static files
+*Setup:*
 ```php
 class Templater extends Fenom {
     use Fenom\AssetsTrait;
@@ -68,7 +67,7 @@ class Templater extends Fenom {
 // ...
 $fenom->enableAssets($settings);
 ```
-Usage:
+*Usage:*
 ```smarty
 {js src="/path/to/script.js"}
 {js}
@@ -81,7 +80,13 @@ div#content {
     color: black;
 }
 {/css}
+
+{assets 'js'} flush all collected js scripts
+{assets 'css'} flush all styles
 ```
 
 
 ### Cacher Fenom\CacheTrait
+
+### Loader Fenom\ModifierLoaderTrait
+

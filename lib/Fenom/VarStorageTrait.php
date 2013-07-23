@@ -89,23 +89,25 @@ trait VarStorageTrait {
 
     /**
      * @param string $template
+     * @param array $vars
      */
-    public function display($template) {
-        /* @var \Fenom|\Fenom\VarStorage $this */
-        $this->_vars = parent::display($template, $this->_vars);
+    public function display($template, array $vars = array()) {
+        /* @var \Fenom|\Fenom\VarStorageTrait $this */
+        $this->_vars = parent::display($template, $this->_vars + $vars);
     }
 
     /**
-     * @param $template
-     * @return string
+     * @param string $template
+     * @param array $vars
      * @throws \Exception
+     * @return string
      */
-    public function fetch($template) {
-        /* @var \Fenom|\Fenom\VarStorage $this */
+    public function fetch($template, array $vars = array()) {
+        /* @var \Fenom|\Fenom\VarStorageTrait $this */
         $tpl = $this->getTemplate($template);
         ob_start();
         try {
-            $this->_vars = $tpl->display($this->_vars);
+            $this->_vars = $tpl->display($this->_vars + $vars);
             return ob_get_clean();
         } catch (\Exception $e) {
             ob_end_clean();
@@ -116,10 +118,11 @@ trait VarStorageTrait {
     /**
      * @param string $template
      * @param $callback
+     * @param array $vars
      * @param float $chunk
      */
-    public function pipe($template, $callback, $chunk = 1e6) {
-        /* @var \Fenom|\Fenom\VarStorage $this */
-        $this->_vars = parent::pipe($template, $this->_vars, $callback, $chunk);
+    public function pipe($template, $callback, array $vars = array(), $chunk = 1e6) {
+        /* @var \Fenom|\Fenom\VarStorageTrait $this */
+        $this->_vars = parent::pipe($template, $this->_vars + $vars, $callback, $chunk);
     }
 }
