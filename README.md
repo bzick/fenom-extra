@@ -34,7 +34,7 @@ Variable support:
 
 ### Works with static files
 
-## Fenom\Assets [dev]
+#### Fenom\Assets [dev]
 
 Declare tags `{js}` and `{css}` for JavaScript and CSS static files
 
