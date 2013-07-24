@@ -21,7 +21,7 @@ $fenom->assignByRef("var_name", $value);
 $fenom->append("var_name", $value);
 $fenom->prepend("var_name", $value);
 $vars = $fenom->getVars();
-$fenom->assertVars($vars);
+$fenom->resetVars($vars);
 
 $fenom->pipe($template_name, $callback);
 $fenom->fetch($template_name);
