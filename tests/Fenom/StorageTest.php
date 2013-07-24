@@ -3,7 +3,7 @@
 namespace Fenom;
 
 
-class VarStorageTest extends \PHPUnit_Framework_TestCase {
+class StorageTest extends \PHPUnit_Framework_TestCase {
 
     public function testAssign() {
         $fenom = new TemplaterStorage(new Provider(__DIR__));
