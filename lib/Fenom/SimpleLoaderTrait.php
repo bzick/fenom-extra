@@ -3,7 +3,7 @@
 namespace Fenom;
 
 
-trait ModifierLoaderTrait {
+trait SimpleLoaderTrait {
 
     protected $_plugin_dir;
     protected $_modifier_func = "fenom_modifier_%s";

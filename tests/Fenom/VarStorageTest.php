@@ -6,7 +6,7 @@ namespace Fenom;
 class VarStorageTest extends \PHPUnit_Framework_TestCase {
 
     public function testAssign() {
-        $fenom = new TemplateStorage(new Provider(__DIR__));
+        $fenom = new TemplaterStorage(new Provider(__DIR__));
 
         $var = "string2";
         $fenom->assign("var1", 'string1');
@@ -33,6 +33,6 @@ class VarStorageTest extends \PHPUnit_Framework_TestCase {
 
 }
 
-class TemplateStorage extends \Fenom {
+class TemplaterStorage extends \Fenom {
     use VarStorageTrait;
 }
