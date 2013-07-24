@@ -88,5 +88,8 @@ div#content {
 
 ### Cacher Fenom\CacheTrait
 
-### Loader Fenom\ModifierLoaderTrait
+### Loader Fenom\LoaderTrait
+
+### Configurator Fenom\ConfiguratorTrait
+
 
