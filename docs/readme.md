@@ -8,4 +8,4 @@ Add-ons
 * [Loader](./add-ons/loader.md)
 * [Plugins loader](./add-ons/plugins_loader.md)
 * [Configurator](./add-ons/configurator.md)
-* [Cacher](./add-ons/cacher
+* [Cacher](./add-ons/cacher)

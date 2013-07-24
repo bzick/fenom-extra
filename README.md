@@ -1,95 +1,25 @@
 Add-ons for Fenom [development]
 =================
 
-Extra add-on pack for [Fenom](https://github.com/bzick/fenom) template engine.
+Extra add-ons pack for [Fenom](https://github.com/bzick/fenom) template engine.
 
-### Collector Fenom\VarStorageTrait
+> Composer package: `{"fenom/extra": "dev-master"}`. See on [Packagist.org](https://packagist.org/packages/fenom/extra)
 
-*About:* trait gives the ability to store variables in Fenom.
-*Setup:*
+[![Build Status](https://travis-ci.org/bzick/fenom-extra.png?branch=master)](https://travis-ci.org/bzick/fenom-extra)
+
+***
+
+The library is a collection of add-ons. Each add-on present as trait. This realization allow create your template engine with custom collection of add-ons.
+Also library contain class `Fenom\Extra` - template engine which include all add-ons and ready out of the box.
+
+### [List of add-ons](./docs/readme.md)
+
+For example:
 ```php
-class Templater extends Fenom {
-    use Fenom\VarStorageTrait;
-    /* ... */
+class Templater extends \Fenom {
+    use \Fenom\VarStorageTrait, // add internal storage of variables
+        \Fenom\LoaderTrait, // allow add yours loaders for modifiers and tags
+        \Fenom\PluginLoaderTrait; // add loader for modifiers and tags in Smarty-like style
+    // ...
 }
 ```
-*Usage:*
-```php
-$fenom->resetVars();
-$fenom->assign("var_name", $value);
-$fenom->assignByRef("var_name", $value);
-$fenom->append("var_name", $value);
-$fenom->prepend("var_name", $value);
-$vars = $fenom->getVars();
-$fenom->resetVars($vars);
-
-$fenom->pipe($template_name, $callback);
-$fenom->fetch($template_name);
-$fenom->display($template_name);
-```
-
-### Accessor Fenom\Traitor
-
-*About:* simple object implementation of Smarty template variable `$smarty`. Use object `Fenom\Traitor` as template variable.
-Variable support:
-* `{$var.const.CONST_NAME}` access to constants
-* `{$var.get}` access to `$_GET` array
-* `{$var.post}` access to `$_POST` array
-* `{$var.files}` access to `$_FILES` array
-* `{$var.session}` access to `$_SESSION` array
-* `{$var.cookie}` access to `$_COOKIE` array
-* `{$var.request}` access to `$_REQUEST` array
-* `{$var.server}` access to `$_SERVER` array
-* `{$var.globals}` access to `$GLOBALS` array
-* `{$var.version}` return version of the Fenom
-* `{$var.ldelim}`, `{$var.rdelim}` return right and left delimiters of the Fenom tags
-* `{$var.now}` return current time stamp
-
-*Setup:* add object manually or use trait `Fenom\AccessorTrait`:
-```php
-class Templater extends Fenom {
-    use Fenom\AccessorTrait;
-    /* ... */
-}
-// ...
-$fenom->addAccessorAs(["smarty", "fenom"]);
-```
-
-### Fenom\Assets [dev]
-
-*About:* declare tags `{js}` and `{css}` for JavaScript and CSS static files
-*Setup:*
-```php
-class Templater extends Fenom {
-    use Fenom\AssetsTrait;
-    /* ... */
-}
-// ...
-$fenom->enableAssets($settings);
-```
-*Usage:*
-```smarty
-{js src="/path/to/script.js"}
-{js}
-    tm.init(1000);
-{/js}
-
-{css src="/path/to/styles.css"}
-{css}
-div#content {
-    color: black;
-}
-{/css}
-
-{assets 'js'} flush all collected js scripts
-{assets 'css'} flush all styles
-```
-
-
-### Cacher Fenom\CacheTrait
-
-### Loader Fenom\LoaderTrait
-
-### Configurator Fenom\ConfiguratorTrait
-
-
