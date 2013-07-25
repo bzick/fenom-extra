@@ -1,5 +1,32 @@
 <?php
 
+class A {
+    public function method() {
+        return 1;
+    }
+}
+
+class B extends A {
+    public $method;
+
+    public function method() {
+        return $this->method->bindTo($this)->__invoke();
+    }
+
+    public function _prev($name) {
+        return call_user_func("parent::$name");
+    }
+}
+
+$b = new B;
+$b->method = function () {
+  return $this->_prev('method');
+};
+var_dump($b->method());
+
+exit;
+
+
 trait T1 {
     public function m() {
         var_dump("t1");

@@ -18,10 +18,13 @@ Variable support:
 
 ### Setup
 
-**Trait:** `Fenom\AccessorTrait`
+**Trait:**: `Fenom\AccessorTrait`
+**Depends**: [Fenom\ReparserTrait](./reparser.md)
+Replace `parserVar`
 
 ```php
 class Templater extends Fenom {
+    use Fenom\ReparserTrait;
     use Fenom\AccessorTrait;
     /* ... */
 }
@@ -37,4 +40,8 @@ $fenom->setAccessorName('smarty'); // add global variable $smarty
 ```smarty
 Name: {$fenom.get.name}
 ```
+
+### Fenom\Extra
+
+Configured global variable `$fenom`.
 

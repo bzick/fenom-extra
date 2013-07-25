@@ -33,6 +33,6 @@ div#content {
 }
 {/css}
 
-{assets 'js'} flush all collected js scripts
-{assets 'css'} flush all styles
+{assets 'js' minify factor=6} flush all collected js scripts
+{assets 'css' minify optimize factor=6} flush all styles
 ```

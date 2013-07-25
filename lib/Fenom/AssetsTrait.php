@@ -28,4 +28,8 @@ trait AssetsTrait {
     public function getAssets() {
 
     }
+
+    public function setAssets() {
+
+    }
 }

@@ -17,7 +17,7 @@ Also library contain class `Fenom\Extra` - template engine which include all add
 For example:
 ```php
 class Templater extends \Fenom {
-    use \Fenom\VarStorageTrait, // add internal storage of variables
+    use \Fenom\StorageTrait, // add internal storage of variables
         \Fenom\LoaderTrait, // allow add yours loaders for modifiers and tags
         \Fenom\PluginLoaderTrait; // add loader for modifiers and tags in Smarty-like style
     // ...

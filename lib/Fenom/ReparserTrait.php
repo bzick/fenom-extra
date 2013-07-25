@@ -11,9 +11,9 @@ class ReparserTrait {
     /**
      * Replace any parser Fenom\Template::parser*
      * @param string $name parser name without prefix parser.
-     * @param callable $parser new parser
+     * @param \Closure $parser new parser
      */
-    protected function _replaceParser($name, callable $parser) {
+    protected function _replaceParser($name, \Closure $parser) {
         $this->_reparsers[$name] = $parser;
     }
 
