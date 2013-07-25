@@ -6,6 +6,6 @@ Add-ons
 * [Accessor](./add-ons/accessor.md)
 * [Assets](./add-ons/assets.md)
 * [Loader](./add-ons/loader.md)
-* [Plugins loader](./add-ons/plugins_loader.md)
+* [Simple loader](./add-ons/simple-loader.md)
 * [Configurator](./add-ons/configurator.md)
 * [Cacher](./add-ons/cacher)

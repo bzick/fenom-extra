@@ -5,11 +5,14 @@ Create methods for each options from `setOption` option.
 
 ### Setup
 
-**Trait:** `Fenom\ReparserTrait`
+**Trait:** `Fenom\ConfiguratorTrait`
 
 ```php
 class Templater extends Fenom {
-    use Fenom\ReparserTrait;
+    use Fenom\ConfiguratorTrait;
     /* ... */
 }
 ```
+
+### Usage
+
