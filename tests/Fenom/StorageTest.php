@@ -34,5 +34,5 @@ class StorageTest extends \PHPUnit_Framework_TestCase {
 }
 
 class TemplaterStorage extends \Fenom {
-    use VarStorageTrait;
+    use StorageTrait;
 }
