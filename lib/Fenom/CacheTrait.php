@@ -3,10 +3,12 @@
 namespace Fenom;
 
 
-trait CacheTrait {
+trait CacheTrait
+{
     protected $_cacher;
 
-    public function setCacher($cacher) {
+    public function setCacher($cacher)
+    {
 
     }
 }

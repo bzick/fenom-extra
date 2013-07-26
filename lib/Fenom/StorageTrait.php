@@ -3,7 +3,8 @@
 namespace Fenom;
 
 
-trait StorageTrait {
+trait StorageTrait
+{
     /**
      * @var array storage
      */
@@ -13,7 +14,8 @@ trait StorageTrait {
      * @param array $variables
      * @return $this
      */
-    public function assignAll(array $variables) {
+    public function assignAll(array $variables)
+    {
         $this->_vars = $variables + $this->_vars;
         return $this;
     }
@@ -23,7 +25,8 @@ trait StorageTrait {
      * @param mixed $variable
      * @return $this
      */
-    public function assign($name, $variable) {
+    public function assign($name, $variable)
+    {
         $this->_vars[$name] = $variable;
         return $this;
     }
@@ -33,8 +36,9 @@ trait StorageTrait {
      * @param mixed $variable
      * @return $this
      */
-    public function assignByRef($name, &$variable) {
-        $this->_vars[$name] = &$variable;
+    public function assignByRef($name, &$variable)
+    {
+        $this->_vars[$name] = & $variable;
         return $this;
     }
 
@@ -43,11 +47,12 @@ trait StorageTrait {
      * @param mixed $variable
      * @return $this
      */
-    public function prepend($name, $variable) {
-        if(!isset($this->_vars[$name])) {
+    public function prepend($name, $variable)
+    {
+        if (!isset($this->_vars[$name])) {
             $this->_vars[$name] = array();
         }
-        if(!is_array($this->_vars[$name])) {
+        if (!is_array($this->_vars[$name])) {
             $this->_vars[$name] = (array)$this->_vars[$name];
         }
         array_unshift($this->_vars[$name], $variable);
@@ -59,11 +64,12 @@ trait StorageTrait {
      * @param mixed $variable
      * @return $this
      */
-    public function append($name, $variable) {
-        if(!isset($this->_vars[$name])) {
+    public function append($name, $variable)
+    {
+        if (!isset($this->_vars[$name])) {
             $this->_vars[$name] = array();
         }
-        if(!is_array($this->_vars[$name])) {
+        if (!is_array($this->_vars[$name])) {
             $this->_vars[$name] = (array)$this->_vars[$name];
         }
         $this->_vars[$name][] = $variable;
@@ -74,7 +80,8 @@ trait StorageTrait {
      * Get collected variables
      * @return array
      */
-    public function getVars() {
+    public function getVars()
+    {
         return $this->_vars;
     }
 
@@ -82,7 +89,8 @@ trait StorageTrait {
      * Reset collected variables
      * @return $this
      */
-    public function resetVars() {
+    public function resetVars()
+    {
         $this->_vars = array();
         return $this;
     }
@@ -91,7 +99,8 @@ trait StorageTrait {
      * @param string $template
      * @param array $vars
      */
-    public function display($template, array $vars = array()) {
+    public function display($template, array $vars = array())
+    {
         /* @var \Fenom|\Fenom\VarStorageTrait $this */
         $this->_vars = parent::display($template, $this->_vars + $vars);
     }
@@ -102,14 +111,15 @@ trait StorageTrait {
      * @throws \Exception
      * @return string
      */
-    public function fetch($template, array $vars = array()) {
+    public function fetch($template, array $vars = array())
+    {
         /* @var \Fenom|\Fenom\VarStorageTrait $this */
         $tpl = $this->getTemplate($template);
         ob_start();
         try {
             $this->_vars = $tpl->display($this->_vars + $vars);
             return ob_get_clean();
-        } catch (\Exception $e) {
+        } catch(\Exception $e) {
             ob_end_clean();
             throw $e;
         }
@@ -121,7 +131,8 @@ trait StorageTrait {
      * @param array $vars
      * @param float $chunk
      */
-    public function pipe($template, $callback, array $vars = array(), $chunk = 1e6) {
+    public function pipe($template, $callback, array $vars = array(), $chunk = 1e6)
+    {
         /* @var \Fenom|\Fenom\VarStorageTrait $this */
         $this->_vars = parent::pipe($template, $this->_vars + $vars, $callback, $chunk);
     }

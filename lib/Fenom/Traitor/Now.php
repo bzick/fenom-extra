@@ -3,9 +3,11 @@
 namespace Fenom\Traitor;
 
 
-class Now {
+class Now
+{
 
-    public function __toString() {
+    public function __toString()
+    {
         return strval(time());
     }
 }

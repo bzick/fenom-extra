@@ -1,15 +1,12 @@
 <?php
 namespace Fenom;
 
-class Extra extends \Fenom {
-    use StorageTrait;
-    use AssetsTrait;
-    use ReparserTrait;
-    use AccessorTrait;
-    use LoaderTrait;
-    use SimpleLoaderTrait;
+class Extra extends \Fenom
+{
+    use StorageTrait, AssetsTrait, ReparserTrait, AccessorTrait, LoaderTrait, SimpleLoaderTrait;
 
-    public function __construct($provider) {
+    public function __construct($provider)
+    {
         parent::__construct($provider);
 
         // AssetsTrait

@@ -3,7 +3,8 @@
 namespace Fenom;
 
 
-trait LoaderTrait {
+trait LoaderTrait
+{
 
     /**
      * @var callable[]
@@ -19,10 +20,11 @@ trait LoaderTrait {
      * @param Template $template
      * @return bool|mixed
      */
-    protected function _loadModifier($modifier, $template) {
-        foreach($this->_modifier_loaders as $loader) {
+    protected function _loadModifier($modifier, $template)
+    {
+        foreach ($this->_modifier_loaders as $loader) {
             $mod = call_user_func($loader, $modifier, $template);
-            if($mod) {
+            if ($mod) {
                 return $mod;
             }
         }
@@ -35,10 +37,11 @@ trait LoaderTrait {
      * @param Template $template
      * @return bool|array
      */
-    protected function _loadTag($tag, $template) {
-        foreach($this->_tag_loaders as $loader) {
+    protected function _loadTag($tag, $template)
+    {
+        foreach ($this->_tag_loaders as $loader) {
             $info = call_user_func($loader, $tag, $template);
-            if($info) {
+            if ($info) {
                 return $info;
             }
         }
@@ -53,8 +56,9 @@ trait LoaderTrait {
      * @param bool $prepend
      * @return $this
      */
-    public function addModifierLoader(callable $loader, $prepend = false) {
-        if($prepend) {
+    public function addModifierLoader(callable $loader, $prepend = false)
+    {
+        if ($prepend) {
             array_unshift($this->_modifier_loaders, $loader);
         } else {
             $this->_modifier_loaders[] = $loader;
@@ -69,8 +73,9 @@ trait LoaderTrait {
      * @param bool $prepend
      * @return $this
      */
-    public function addTagLoader(callable $loader, $prepend = false) {
-        if($prepend) {
+    public function addTagLoader(callable $loader, $prepend = false)
+    {
+        if ($prepend) {
             array_unshift($this->_tag_loaders, $loader);
         } else {
             $this->_tag_loaders[] = $loader;

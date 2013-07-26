@@ -3,33 +3,41 @@
 namespace Fenom;
 
 
-trait AssetsTrait {
+trait AssetsTrait
+{
 
-    public function addJS() {
-
-    }
-
-    public function addJSCode() {
+    public function addJS()
+    {
 
     }
 
-    public function addCSS() {
+    public function addJSCode()
+    {
 
     }
 
-    public function addCSSCode() {
+    public function addCSS()
+    {
 
     }
 
-    public function resetAssets() {
+    public function addCSSCode()
+    {
 
     }
 
-    public function getAssets() {
+    public function resetAssets()
+    {
 
     }
 
-    public function setAssets() {
+    public function getAssets()
+    {
+
+    }
+
+    public function setAssets()
+    {
 
     }
 }
