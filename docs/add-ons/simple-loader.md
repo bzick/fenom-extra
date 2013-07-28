@@ -52,6 +52,8 @@ The agreement to create plugins:
     ```
     * Return: PHP code
 
+All plugins you can see in [lib/Plugins](https://github.com/bzick/fenom-extra/tree/master/lib/Plugins) directory.
+
 ### Setup
 
 **Trait:** `Fenom\SimpleLoaderTrait`
