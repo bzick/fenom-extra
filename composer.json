@@ -1,7 +1,7 @@
 {
     "name": "fenom/extra",
     "type": "library",
-    "description": "Add-ons extra pack for Fenom",
+    "description": "Extra pack for Fenom",
     "keywords": ["fenom", "add-ons", "extra"],
     "license": "BSD-3",
     "authors": [

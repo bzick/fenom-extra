@@ -23,3 +23,5 @@ class Templater extends \Fenom {
     // ...
 }
 ```
+
+All add-ons implemented in class `\Fenom\Extra`.

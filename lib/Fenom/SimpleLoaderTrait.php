@@ -2,7 +2,7 @@
 
 namespace Fenom;
 
-define('FENOM_DEFAULT_PLUGINS', dirname(__DIR__)."/plugins");
+define('FENOM_DEFAULT_PLUGINS', dirname(__DIR__)."/Plugins");
 
 trait SimpleLoaderTrait
 {
