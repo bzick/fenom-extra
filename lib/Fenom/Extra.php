@@ -10,7 +10,7 @@ class Extra extends \Fenom
         parent::__construct($provider);
 
         // AssetsTrait
-        $this->setAssets(true);
+        $this->setAssetsBehavior(true);
 
         // AccessorTrait
         $this->setAccessorName('fenom');

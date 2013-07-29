@@ -5,7 +5,7 @@ namespace Fenom;
 
 use Fenom\Reparser\Template;
 
-class ReparserTrait
+trait ReparserTrait
 {
 
     private $_reparsers = [];
@@ -23,7 +23,7 @@ class ReparserTrait
     /**
      * @return Template
      */
-    protected function getRawTemplate()
+    public function getRawTemplate()
     {
         if ($this->_reparsers) {
             return new Template($this, $this->_options, $this->_reparsers);
