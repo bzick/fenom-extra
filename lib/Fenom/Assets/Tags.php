@@ -1,24 +1,20 @@
 <?php
 
-namespace Fenom;
+namespace Fenom\Assets;
 
+use Fenom\Tokenizer,
+    Fenom\Scope,
+    Fenom\Template;
 
-class Assets
+class Tags
 {
-
-    public static function add(\Fenom $fenom)
-    {
-        $fenom->addBlockCompiler("js", __CLASS__.'::jsOpen', __CLASS__.'::jsClose');
-        $fenom->addBlockCompiler("css", __CLASS__.'::cssOpen', __CLASS__.'::cssClose');
-        $fenom->addCompiler("assets", __CLASS__.'::tagAssets');
-    }
 
     public static function jsOpen(Tokenizer $tokens, Scope $scope)
     {
         $params = $scope->tpl->parseParams($tokens);
         if (isset($params["src"])) {
             $scope->is_closed = true;
-            return '$tpl["_assets_js"][] = array("code" => false, "src" => '.$params["src"].');';
+            return '$tpl->getStorage()->addJS(array("code" => false, "src" => '.$params["src"].'));';
         } else {
             return 'ob_start()';
         }

@@ -3,7 +3,7 @@ namespace Fenom;
 
 class Extra extends \Fenom
 {
-    use StorageTrait, AssetsTrait, ReparserTrait, AccessorTrait, LoaderTrait, SimpleLoaderTrait;
+    use StorageTrait, AssetsTrait, LoaderTrait, SimpleLoaderTrait;
 
     public function __construct($provider)
     {
@@ -11,9 +11,6 @@ class Extra extends \Fenom
 
         // AssetsTrait
         $this->setAssetsBehavior(true);
-
-        // AccessorTrait
-        $this->setAccessorName('fenom');
 
         // SimpleLoaderTrait
         $this->addPluginsDir(FENOM_DEFAULT_PLUGINS);
