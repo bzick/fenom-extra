@@ -24,6 +24,11 @@ trait AssetsTrait
         $this->addCompiler('assets', 'Fenom\Assets\Tags::tagAssets');
     }
 
+    public function setPackJS()
+    {
+
+    }
+
     public function addJS($url)
     {
 

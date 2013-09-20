@@ -12,7 +12,10 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "fenom/fenom": "dev-develop"
+        "fenom/fenom": "dev-master"
+    },
+    "suggest": {
+        "php": "p"
     },
     "require-dev": {
         "phpunit/phpunit": "3.*"

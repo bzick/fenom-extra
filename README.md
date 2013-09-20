@@ -12,6 +12,14 @@ Extra add-ons pack for [Fenom](https://github.com/bzick/fenom) template engine.
 The library is a collection of add-ons. Each add-on present as trait. This realization allow create your template engine with custom collection of add-ons.
 Also library contain class `Fenom\Extra` - template engine which include all add-ons and ready out of the box.
 
+Use class `Fenom\Extra` instead of `Fenom`:
+
+```php
+$fenom = Fenom\Extra::factory($template_dir, $compiled_dir, $options);
+```
+
+Or combine your own templater:
+
 ### [List of add-ons](./docs/readme.md)
 
 For example:
