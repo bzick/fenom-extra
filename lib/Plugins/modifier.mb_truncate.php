@@ -33,5 +33,3 @@ function fenom_modifier_mb_truncate(
     }
     return $r;
 }
-
-?>

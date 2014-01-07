@@ -33,3 +33,62 @@ class Templater extends \Fenom {
 ```
 
 All add-ons implemented in class `\Fenom\Extra`.
+
+### Storage
+
+Add-on: `Fenom\StorageTrait`
+
+```php
+<?php
+$fenom->assign("var_name", $value);
+$fenom->assignByRef("var_name", $value);
+$fenom->append("var_name", $value);
+$fenom->prepend("var_name", $value);
+$vars = $fenom->getVars();
+$fenom->assignVars($vars);
+$fenom->resetVars();
+
+$fenom->pipe($template_name, $callback);
+$fenom->fetch($template_name);
+$fenom->display($template_name);
+```
+
+### Loader
+
+Add-on: `Fenom\LoaderTrait`
+
+### Plugin loader
+
+Add-on: `Fenom\SimpleLoaderTrait`
+Require: `Fenom\LoaderTrait`
+
+```php
+<?php
+$fenom->addPluginsDir($path);
+```
+
+### Smarty
+
+Add-on: `Fenom\SmartyTrait`
+Require: `Fenom\SimpleLoaderTrait`
+
+```php
+<?php
+$fenom->setSmartySupport();  // enable smarty syntax support
+```
+
+Supported:
+
+- backticks operator in quoted string: ```{func var="test `$foo[0]` test"}```
+- global variable `$smarty` (without `section` data)
+- tag `assign`
+- tag `foreach`
+- tag `section`
+- tag `math`
+
+Todo:
+
+- invoke plugins in quoted strings: `{func var="test {counter} test"}`
+- global variable `$smarty` with `section` data
+
+### Assets

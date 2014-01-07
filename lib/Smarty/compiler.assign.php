@@ -3,6 +3,8 @@
 /**
  * @param \Fenom\Tokenizer $tokenizer
  * @param \Fenom\Template $tpl
+ * @throws LogicException
+ * @return string
  */
 function fenom_compiler_assign(\Fenom\Tokenizer $tokenizer, \Fenom\Template $tpl) {
     $params = $tpl->parseParams($tokenizer);

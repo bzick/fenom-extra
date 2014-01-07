@@ -3,7 +3,7 @@ namespace Fenom;
 
 class Extra extends \Fenom
 {
-    use StorageTrait, AssetsTrait, LoaderTrait, SimpleLoaderTrait;
+    use StorageTrait, AssetsTrait, LoaderTrait, SimpleLoaderTrait, SmartyTrait;
 
     public function __construct($provider)
     {

@@ -10,5 +10,3 @@ function fenom_modifier_spellcount($num, $one, $two, $many)
         echo $num.' '.$many;
     }
 }
-
-?>

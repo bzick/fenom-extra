@@ -14,9 +14,6 @@
  * Name:     capitalize<br>
  * Purpose:  capitalize words in the string
  *
- * @link http://www.fenom.ru/docs/language.modifiers.tpl#language.modifier.capitalize
- * @author
- *
  * @param string $string    string to capitalize
  * @param boolean $uc_digits also capitalize "x123" to "X123"
  * @param boolean $lc_rest   capitalize first letters, lowercase all following letters "aAa" to "Aaa"
