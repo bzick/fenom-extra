@@ -23,6 +23,9 @@ trait SmartyTrait {
         if(stripos($tag, '$smarty.') !== false) {
             $tag = str_replace('$smarty.', '$.', $tag);
         }
+        if(stripos($tag, '|@') !== false) {
+            $tag = str_replace('|@', '|', $tag);
+        }
         if(preg_match('/\$\.(foreach|section)/S', $tag)) {
             $tag = preg_replace('/\$\.(foreach|section)\.(\w+)\.(\w+)/S', '$_${1}_${2}_${3}', $tag); // $.foreach.name.index => $_foreach_name_index
         }

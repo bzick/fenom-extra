@@ -3,13 +3,13 @@
 namespace Fenom\Assets;
 
 use Fenom\Tokenizer,
-    Fenom\Scope,
+    Fenom\Tag,
     Fenom\Template;
 
 class Tags
 {
 
-    public static function jsOpen(Tokenizer $tokens, Scope $scope)
+    public static function jsOpen(Tokenizer $tokens, Tag $scope)
     {
         $params = $scope->tpl->parseParams($tokens);
         if (isset($params["src"])) {
@@ -25,7 +25,7 @@ class Tags
         return '$tpl["_assets_js"][] = array("code" => ob_get_flush(), "src" => $tpl->__toString(), "mtime" => $tpl->getTime());';
     }
 
-    public static function cssOpen(Tokenizer $tokens, Scope $scope)
+    public static function cssOpen(Tokenizer $tokens, Tag $scope)
     {
         $params = $scope->tpl->parseParams($tokens);
         if (isset($params["src"])) {
