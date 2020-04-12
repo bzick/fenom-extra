@@ -2,13 +2,12 @@
 
 namespace Fenom\Assets;
 
-use Fenom\Tokenizer,
-    Fenom\Tag,
-    Fenom\Template;
+use Fenom\Tokenizer;
+use Fenom\Tag;
+use Fenom\Template;
 
 class Tags
 {
-
     public static function jsOpen(Tokenizer $tokens, Tag $scope)
     {
         $params = $scope->tpl->parseParams($tokens);
